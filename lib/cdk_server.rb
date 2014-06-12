@@ -139,7 +139,7 @@ post '/build' do
         echo "Creating build archive ..."
 
         set +e
-        if ( zip -r #{destination} * ); then
+        if ( zip -y -r #{destination} * ); then
           rm -rf #{tmpdir}
         else
           rm -rf #{tmpdir}

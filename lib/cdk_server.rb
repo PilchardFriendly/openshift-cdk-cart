@@ -152,7 +152,7 @@ post '/build' do
         echo 
         echo "Build complete"
 
-      ) 200>/tmp/cdk_build.lock
+      ) 200>/tmp/${OPENSHIFT_GEAR_UUID}cdk_build.lock
       } 2>&1
     END
   end

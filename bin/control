@@ -3,6 +3,7 @@
 STOPTIMEOUT=10
 FMT="%a %b %d %Y %H:%M:%S GMT%z (%Z)"
 PUMA_STATE=$OPENSHIFT_CDK_DIR/pid/puma.state
+PUMA_CONFIG=$OPENSHIFT_CDK_DIR/config/puma.rb
 PUMA_BIN=$OPENSHIFT_DATA_DIR/gems/ruby/1.9.1/bin
 
 function is_puma_running() {
@@ -53,7 +54,7 @@ function start() {
         if (is_puma_running); then
             exit 0;
         fi
-        nohup /usr/bin/scl enable ruby193 "BUNDLE_GEMFILE=$OPENSHIFT_CDK_DIR/Gemfile bundle exec '$PUMA_BIN/puma --bind tcp://$OPENSHIFT_CDK_IP:$OPENSHIFT_CDK_PORT -I$OPENSHIFT_CDK_DIR/lib -S $PUMA_STATE $OPENSHIFT_CDK_DIR/lib/config.ru'" >> $logf 2>&1 &
+        nohup /usr/bin/scl enable ruby193 "BUNDLE_GEMFILE=$OPENSHIFT_CDK_DIR/Gemfile bundle exec '$PUMA_BIN/puma --bind tcp://$OPENSHIFT_CDK_IP:$OPENSHIFT_CDK_PORT -I$OPENSHIFT_CDK_DIR/lib -S $PUMA_STATE -C $PUMA_CONFIG $OPENSHIFT_CDK_DIR/lib/config.ru'" >> $logf 2>&1 &
 
         ret=$?
         if [ $ret -ne 0 ]; then

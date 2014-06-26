@@ -5,6 +5,6 @@ gem 'sinatra'
 gem 'haml'
 gem 'puma'
 gem 'httpclient', '<2.4.0'
-group :development do 
-	gem 'rhc'
+group :content do
+	gem 'github-pages'
 end

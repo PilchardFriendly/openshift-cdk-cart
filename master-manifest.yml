@@ -1,0 +1,4 @@
+---
+---
+{% include manifest.yml %}
+Source-Url: https://github.com/PilchardFriendly/openshift-cdk-cart/archive/master.zip

@@ -1,16 +1,39 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    haml (3.1.8)
-    httpclient (2.3.3)
-    puma (2.0.1)
+    archive-tar-minitar (0.5.2)
+    commander (4.2.0)
+      highline (~> 1.6.11)
+    haml (4.0.5)
+      tilt
+    highline (1.6.21)
+    httpclient (2.3.4.1)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.9.1)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
+    net-ssh-multi (1.2.0)
+      net-ssh (>= 2.6.5)
+      net-ssh-gateway (>= 1.2.0)
+    open4 (1.3.4)
+    puma (2.8.2)
       rack (>= 1.1, < 2.0)
     rack (1.5.2)
-    rack-protection (1.5.0)
+    rack-protection (1.5.3)
       rack
-    safe_yaml (0.9.1)
-    sinatra (1.4.2)
-      rack (~> 1.5, >= 1.5.2)
+    rhc (1.26.9)
+      archive-tar-minitar
+      commander (>= 4.0)
+      highline (~> 1.6.11)
+      httpclient (>= 2.2)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.0.11)
+      net-ssh-multi (>= 1.2.0)
+      open4
+    safe_yaml (1.0.3)
+    sinatra (1.4.5)
+      rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
     tilt (1.4.1)
@@ -20,7 +43,8 @@ PLATFORMS
 
 DEPENDENCIES
   haml
-  httpclient
+  httpclient (< 2.4.0)
   puma
+  rhc
   safe_yaml
   sinatra
